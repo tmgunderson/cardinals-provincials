@@ -48,12 +48,12 @@ export default function Countdown({ targetDate }) {
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem,10vw,6rem)', color: 'var(--gold)', lineHeight: 1, minWidth: '2ch', tabularNums: true }}>
                 {String(val).padStart(2, '0')}
               </div>
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.55rem', letterSpacing: '3px', color: '#3a3a3a', textTransform: 'uppercase', marginTop: '0.25rem' }}>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.8rem', letterSpacing: '3px', color: '#C41E3A', textTransform: 'uppercase', marginTop: '0.3rem' }}>
                 {label}
               </div>
             </div>
             {i < units.length - 1 && (
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,7vw,4.5rem)', color: '#2a2a2a', lineHeight: 1, marginTop: '0.1em', userSelect: 'none' }}>:</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,7vw,4.5rem)', color: '#3a3a3a', lineHeight: 1, marginTop: '0.1em', userSelect: 'none' }}>:</div>
             )}
           </div>
         ))}

@@ -20,10 +20,11 @@ const LABEL = {
   95:'Thunderstorm', 96:'Thunderstorm', 99:'Thunderstorm',
 };
 
-// Calgary open-meteo coords
 const URL = 'https://api.open-meteo.com/v1/forecast?latitude=51.045&longitude=-114.072' +
   '&current=temperature_2m,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode' +
   '&timezone=America%2FDenver&forecast_days=16';
+
+const text = { fontFamily: 'var(--font-ui)', fontSize: '0.95rem', letterSpacing: '1px', color: '#C41E3A' };
 
 export default function WeatherWidget() {
   const [wx, setWx] = useState(null);
@@ -47,25 +48,27 @@ export default function WeatherWidget() {
       .catch(() => {});
   }, []);
 
-  const base = { fontFamily: 'var(--font-ui)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' };
-
   if (!wx) return (
-    <div style={{ ...base, fontSize: '0.7rem', color: '#333', letterSpacing: '1px' }}>
+    <div style={{ ...text }}>
       📍 Calgary, AB · July avg 23°C · Pack sunscreen
     </div>
   );
 
   return (
-    <div style={{ ...base, gap: '1.2rem' }}>
-      <span style={{ fontSize: '0.7rem', color: '#444', letterSpacing: '1px' }}>
-        {ICON[wx.code] || '🌡️'} Calgary now · <strong style={{ color: 'var(--gold)' }}>{wx.temp}°C</strong> · {LABEL[wx.code] || ''}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <span style={{ ...text }}>
+        {ICON[wx.code] || '🌡️'} Calgary now ·{' '}
+        <strong style={{ color: 'var(--gold)', fontSize: '1.1rem' }}>{wx.temp}°C</strong>
+        {' '}· {LABEL[wx.code] || ''}
       </span>
       {wx.forecast ? (
-        <span style={{ fontSize: '0.7rem', color: '#444', letterSpacing: '1px' }}>
-          · July 17 forecast: {ICON[wx.forecast.code]} <strong style={{ color: 'var(--gold)' }}>{wx.forecast.high}°C</strong> / {wx.forecast.low}°C
+        <span style={{ ...text }}>
+          · July 17: {ICON[wx.forecast.code]}{' '}
+          <strong style={{ color: 'var(--gold)', fontSize: '1.1rem' }}>{wx.forecast.high}°C</strong>
+          {' '}/ {wx.forecast.low}°C
         </span>
       ) : (
-        <span style={{ fontSize: '0.7rem', color: '#333', letterSpacing: '1px' }}>
+        <span style={{ ...text }}>
           · July avg high 23°C · Pack sunscreen
         </span>
       )}
