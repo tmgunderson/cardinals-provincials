@@ -5,11 +5,19 @@ export const metadata = { title: 'Fundraising · Cardinals Provincials 2026' };
 export default function FundraisingPage() {
   return (
     <div className="section">
-      <div className="section-label">Support the Cardinals</div>
+      <div className="section-label">Support Canada's Game</div>
       <h1 className="section-title">Fundraising</h1>
       <div className="divider" />
-      <p style={{ color: '#666', fontSize: '0.88rem', lineHeight: 1.7, maxWidth: '600px', marginBottom: '3rem' }}>
-        Every dollar raised goes directly to player fees, equipment, and tournament costs. Choose your way to support the Cardinals!
+
+      {/* Host responsibility notice */}
+      <div style={{ borderLeft: '3px solid rgba(232,160,0,0.5)', background: 'rgba(232,160,0,0.04)', padding: '1rem 1.5rem', marginBottom: '2.5rem', maxWidth: '680px' }}>
+        <p style={{ color: '#888', fontSize: '0.88rem', lineHeight: 1.8 }}>
+          As host, the Cardinals are responsible for covering tournament costs. Every dollar raised here keeps this provincial championship running for all teams and families.
+        </p>
+      </div>
+
+      <p style={{ color: '#555', fontSize: '0.85rem', lineHeight: 1.7, maxWidth: '600px', marginBottom: '3rem' }}>
+        Choose your way to support the tournament — every contribution goes directly to making this championship weekend possible.
       </p>
 
       <div className="grid-3">

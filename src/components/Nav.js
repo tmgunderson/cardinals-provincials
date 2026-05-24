@@ -52,8 +52,8 @@ export default function Nav() {
   return (
     <nav style={navStyle}>
       {/* Logo */}
-      <Link href="/" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.4rem', color: '#E8A000', letterSpacing: '2px', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-        🥍 <span style={{ color: '#F5F0E8' }}>Cardinals</span> Provincials
+      <Link href="/" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.2rem', color: '#E8A000', letterSpacing: '1.5px', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+        🥍 <span style={{ color: '#F5F0E8' }}>Alberta Major Female Lacrosse Provincials</span>
       </Link>
 
       {/* Desktop links */}

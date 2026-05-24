@@ -26,12 +26,12 @@ export default function HomePage() {
           RMLL · Alberta Major Female · 2026
         </div>
 
-        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(5rem,14vw,11rem)', lineHeight: 0.9, letterSpacing: '-2px' }}>
-          Calgary<br /><span style={{ color: '#E8A000' }}>Cardinals</span>
+        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(3.5rem,10vw,8rem)', lineHeight: 0.9, letterSpacing: '-1px' }}>
+          Provincial<br /><span style={{ color: '#E8A000' }}>Championships</span>
         </h1>
 
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(1rem,3vw,1.6rem)', letterSpacing: '6px', textTransform: 'uppercase', color: '#666', marginTop: '0.8rem' }}>
-          Provincial Championships
+        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(0.85rem,2.5vw,1.2rem)', letterSpacing: '4px', textTransform: 'uppercase', color: '#555', marginTop: '1rem' }}>
+          Hosted by the Calgary Cardinals
         </p>
 
         <p style={{ marginTop: '1.5rem', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.1rem', letterSpacing: '3px', color: '#FFB800', fontWeight: 600 }}>
@@ -68,7 +68,7 @@ export default function HomePage() {
         <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <Link href="/scores" className="btn btn-primary">Live Scores</Link>
           <Link href="/schedule" className="btn btn-outline">View Schedule</Link>
-          <Link href="/fundraising" className="btn btn-outline">Support the Team</Link>
+          <Link href="/fundraising" className="btn btn-outline">Support Canada's Game</Link>
         </div>
 
         <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', opacity: 0.3, fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', letterSpacing: '3px', textTransform: 'uppercase' }}>
