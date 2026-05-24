@@ -18,7 +18,7 @@ export const TEAMS = [
     city: 'Calgary',
     abbr: 'CGY',
     colors: { primary: '#E8A000', secondary: '#0a0a0a', accent: '#C0392B' },
-    logo: null,
+    logo: '/cardinals-logo.png',
     coach: 'Dean Halcro',
     staff: [
       'Dean Halcro – Head Coach',

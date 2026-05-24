@@ -30,7 +30,7 @@ export default function HomePage() {
           Provincial<br /><span style={{ color: '#E8A000' }}>Championships</span>
         </h1>
 
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(0.85rem,2.5vw,1.2rem)', letterSpacing: '4px', textTransform: 'uppercase', color: '#555', marginTop: '1rem' }}>
+        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(0.85rem,2.5vw,1.2rem)', letterSpacing: '4px', textTransform: 'uppercase', color: 'rgba(196,30,58,0.75)', marginTop: '1rem' }}>
           Hosted by the Calgary Cardinals
         </p>
 
@@ -58,7 +58,7 @@ export default function HomePage() {
               return (
                 <div key={g.id} style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.8rem' }}>
                   {home?.abbr || 'HOME'} {g.homeScore} – {g.awayScore} {away?.abbr || 'AWAY'}
-                  {g.period && <span style={{ fontSize: '1rem', color: '#888', marginLeft: '0.5rem' }}>({g.period})</span>}
+                  {g.period && <span style={{ fontSize: '1rem', color: '#C41E3A', marginLeft: '0.5rem' }}>({g.period})</span>}
                 </div>
               );
             })}
@@ -108,7 +108,7 @@ export default function HomePage() {
             <div key={c.title} className="card-gold-top">
               <div style={{ fontSize: '1.5rem', marginBottom: '0.8rem' }}>{c.icon}</div>
               <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.4rem', letterSpacing: '1px', marginBottom: '0.6rem' }}>{c.title}</div>
-              <p style={{ color: '#666', fontSize: '0.88rem', lineHeight: 1.7 }}>{c.body}</p>
+              <p style={{ color: '#C41E3A', fontSize: '0.88rem', lineHeight: 1.7 }}>{c.body}</p>
             </div>
           ))}
         </div>

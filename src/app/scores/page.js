@@ -44,7 +44,7 @@ export default function ScoresPage() {
       </h1>
       <div className="divider" />
 
-      <p style={{ color: '#666', fontSize: '0.88rem', marginBottom: '2rem' }}>
+      <p style={{ color: '#C41E3A', fontSize: '0.88rem', marginBottom: '2rem' }}>
         Scores update automatically every 20 seconds. Volunteer admin updates from the arena.
       </p>
 
@@ -85,7 +85,7 @@ export default function ScoresPage() {
                     ? <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2.2rem', letterSpacing: '2px' }}>{g.homeScore} – {g.awayScore}</div>
                     : <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.2rem', color: '#333' }}>VS</div>
                   }
-                  {g.period && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#888' }}>{g.period}</div>}
+                  {g.period && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#C41E3A' }}>{g.period}</div>}
                 </div>
 
                 <div>

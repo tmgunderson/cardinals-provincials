@@ -6,7 +6,7 @@ const TIERS = [
   { key: 'platinum', label: 'Platinum',  color: '#E8E8E8', size: '200px', cols: 'repeat(auto-fill,minmax(240px,1fr))' },
   { key: 'gold',     label: 'Gold',      color: '#E8A000', size: '140px', cols: 'repeat(auto-fill,minmax(180px,1fr))' },
   { key: 'silver',   label: 'Silver',    color: '#A0A8B0', size: '100px', cols: 'repeat(auto-fill,minmax(150px,1fr))' },
-  { key: 'community',label: 'Community', color: '#555',    size: '80px',  cols: 'repeat(auto-fill,minmax(130px,1fr))' },
+  { key: 'community',label: 'Community', color: 'rgba(196,30,58,0.75)',    size: '80px',  cols: 'repeat(auto-fill,minmax(130px,1fr))' },
 ];
 
 function SponsorCard({ sponsor, size }) {

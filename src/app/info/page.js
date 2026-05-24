@@ -22,7 +22,7 @@ export default function InfoPage() {
           <div key={c.title} className="card-gold-top">
             <div style={{ fontSize: '1.4rem', marginBottom: '0.8rem' }}>{c.icon}</div>
             <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.4rem', letterSpacing: '1px', marginBottom: '0.6rem' }}>{c.title}</div>
-            <p style={{ color: '#666', fontSize: '0.88rem', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{c.body}</p>
+            <p style={{ color: '#C41E3A', fontSize: '0.88rem', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{c.body}</p>
           </div>
         ))}
       </div>

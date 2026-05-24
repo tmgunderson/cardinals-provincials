@@ -67,7 +67,7 @@ export default function AdminPage() {
   };
 
   const inp = { width: '100%', background: '#0a0a0a', border: '1px solid #2a2a2a', color: '#F5F0E8', padding: '0.7rem 1rem', fontFamily: "'Barlow',sans-serif", fontSize: '0.9rem', marginBottom: '0.8rem', boxSizing: 'border-box' };
-  const lbl = { fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#666', display: 'block', marginBottom: '0.3rem' };
+  const lbl = { fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#C41E3A', display: 'block', marginBottom: '0.3rem' };
 
   // ── Login ──
   if (!authed) {
@@ -152,7 +152,7 @@ export default function AdminPage() {
                       <span style={{ color: g.awayTeamId === 'cardinals' ? '#E8A000' : '#F5F0E8' }}>{getTeamName(g.awayTeamId)}</span>
                     </div>
                     <span className={`badge badge-${g.status}`} style={{ marginTop: '0.3rem' }}>{g.status}</span>
-                    {g.period && <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: '#555', marginLeft: '0.8rem' }}>{g.period}</span>}
+                    {g.period && <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: 'rgba(196,30,58,0.75)', marginLeft: '0.8rem' }}>{g.period}</span>}
                   </div>
                   <button className="btn btn-ghost btn-sm" onClick={() => setEditing({ ...g })}>Edit Score</button>
                 </div>
@@ -200,7 +200,7 @@ export default function AdminPage() {
                     <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.8rem', color: '#E8A000', lineHeight: 1 }}>#{p.number}</div>
                     <div>
                       <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 700, fontSize: '1rem' }}>{p.name}</div>
-                      <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: '#555' }}>{p.position} · GP: {p.gp || 0} · G: {p.goals || 0} · A: {p.assists || 0} · PTS: {(p.goals || 0) + (p.assists || 0)}</div>
+                      <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: 'rgba(196,30,58,0.75)' }}>{p.position} · GP: {p.gp || 0} · G: {p.goals || 0} · A: {p.assists || 0} · PTS: {(p.goals || 0) + (p.assists || 0)}</div>
                     </div>
                   </div>
                   <button className="btn btn-ghost btn-sm" onClick={() => setEditingPlayer({ ...p })}>Edit Stats</button>

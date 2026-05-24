@@ -72,7 +72,7 @@ export default function PlayerPage({ params }) {
                 #{player.number}
               </div>
             </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: '#555', marginTop: '0.25rem' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(196,30,58,0.75)', marginTop: '0.25rem' }}>
               {player.position}{player.age ? ` · Age ${player.age}` : ''}
             </div>
           </div>

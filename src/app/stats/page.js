@@ -75,12 +75,12 @@ export default function StatsPage() {
               <tr key={p.id} style={{ background: i % 2 === 0 ? '#0a0a0a' : '#0d0d0d', borderBottom: '1px solid #111' }}>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#E8A000', fontWeight: 700 }}>{p.number}</td>
                 <td style={{ padding: '0.9rem 1rem', fontWeight: 600 }}>{p.name}</td>
-                <td style={{ padding: '0.9rem 1rem', color: '#666', fontSize: '0.85rem' }}>{p.position}</td>
-                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#666' }}>{p.gp || 0}</td>
+                <td style={{ padding: '0.9rem 1rem', color: '#C41E3A', fontSize: '0.85rem' }}>{p.position}</td>
+                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#C41E3A' }}>{p.gp || 0}</td>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', fontWeight: 700, color: sortBy === 'goals' ? '#FFB800' : '#F5F0E8' }}>{p.goals || 0}</td>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: sortBy === 'assists' ? '#FFB800' : '#888' }}>{p.assists || 0}</td>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', fontWeight: 700, fontSize: '1.1rem', color: sortBy === 'points' ? '#E8A000' : '#F5F0E8' }}>{(p.goals || 0) + (p.assists || 0)}</td>
-                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#555' }}>{p.pim || 0}</td>
+                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: 'rgba(196,30,58,0.75)' }}>{p.pim || 0}</td>
               </tr>
             ))}
           </tbody>

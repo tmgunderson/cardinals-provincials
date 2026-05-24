@@ -23,20 +23,23 @@ export default function TeamPage({ params }) {
     <div className="section">
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-        <div style={{ width: '80px', height: '80px', background: isCardinals ? 'rgba(232,160,0,0.12)' : '#1a1a1a', border: `2px solid ${isCardinals ? '#E8A000' : '#2a2a2a'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.6rem', color: team.colors.primary, flexShrink: 0 }}>
-          {team.abbr}
+        <div style={{ width: '90px', height: '90px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: team.logo ? 'transparent' : '#1a1a1a', border: team.logo ? 'none' : `2px solid ${isCardinals ? '#E8A000' : '#2a2a2a'}` }}>
+          {team.logo
+            ? <img src={team.logo} alt={team.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            : <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.6rem', color: team.colors.primary }}>{team.abbr}</span>
+          }
         </div>
         <div>
           <div className="section-label">{isCardinals ? '🏠 Host Team · RMLL Provincials 2026' : 'RMLL Provincials 2026'}</div>
           <h1 className="section-title" style={{ color: isCardinals ? '#E8A000' : '#F5F0E8' }}>{team.name}</h1>
-          {team.coach && <p style={{ color: '#666', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', letterSpacing: '1px', marginTop: '0.4rem' }}>Head Coach: {team.coach}</p>}
+          {team.coach && <p style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', letterSpacing: '1px', marginTop: '0.4rem' }}>Head Coach: {team.coach}</p>}
         </div>
       </div>
 
       <div className="divider" />
 
       {/* Bio */}
-      <p style={{ color: '#888', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '700px', marginBottom: '3rem' }}>{team.bio}</p>
+      <p style={{ color: '#C41E3A', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '700px', marginBottom: '3rem' }}>{team.bio}</p>
 
       {/* Staff */}
       {team.staff?.length > 0 && (
@@ -44,7 +47,7 @@ export default function TeamPage({ params }) {
           <div className="section-label" style={{ marginBottom: '1rem' }}>Coaching Staff</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))', gap: '1px', background: '#1a1a1a' }}>
             {team.staff.map(s => (
-              <div key={s} style={{ background: '#0a0a0a', padding: '1rem 1.2rem', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', color: '#888' }}>{s}</div>
+              <div key={s} style={{ background: '#0a0a0a', padding: '1rem 1.2rem', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', color: '#C41E3A' }}>{s}</div>
             ))}
           </div>
         </div>
