@@ -16,3 +16,5 @@
 *.pem
 /coverage
 /.vercel
+
+.vercel

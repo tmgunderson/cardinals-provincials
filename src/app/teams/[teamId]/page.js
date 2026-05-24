@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { TEAMS, PLAYERS } from '../../../lib/data';
 import { notFound } from 'next/navigation';
 
@@ -52,28 +53,51 @@ export default function TeamPage({ params }) {
       {/* Roster / Player cards */}
       {players.length > 0 && (
         <>
-          <div className="section-label" style={{ marginBottom: '1.5rem' }}>Roster</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(200px,1fr))', gap: '1px', background: '#1a1a1a' }}>
-            {players.map(p => (
-              <div key={p.id} style={{ background: '#0a0a0a', padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
-                {/* Jersey number watermark */}
-                <div style={{ position: 'absolute', top: '-10px', right: '10px', fontFamily: "'Bebas Neue',sans-serif", fontSize: '5rem', color: 'rgba(232,160,0,0.05)', lineHeight: 1, pointerEvents: 'none' }}>{p.number}</div>
-
-                <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2rem', color: '#E8A000', lineHeight: 1, marginBottom: '0.3rem' }}>#{p.number}</div>
-                <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '1rem', fontWeight: 700, letterSpacing: '1px', color: '#F5F0E8', marginBottom: '0.2rem' }}>{p.name}</div>
-                <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: '#555', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.8rem' }}>{p.position} · {p.hometown}</div>
-
-                {/* Mini stat strip */}
-                <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid #1a1a1a', paddingTop: '0.8rem' }}>
-                  {[['G', p.goals || 0], ['A', p.assists || 0], ['PTS', (p.goals || 0) + (p.assists || 0)]].map(([label, val]) => (
-                    <div key={label} style={{ textAlign: 'center' }}>
-                      <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.2rem', color: '#E8A000', lineHeight: 1 }}>{val}</div>
-                      <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.6rem', color: '#444', letterSpacing: '1px' }}>{label}</div>
+          <div className="section-label" style={{ marginBottom: '1.5rem' }}>Roster — {players.length} Players</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(180px,1fr))', gap: '1px', background: '#1a1a1a' }}>
+            {players.map(p => {
+              const card = (
+                <div style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden', transition: 'background 0.15s' }}>
+                  {/* Photo */}
+                  {p.photo ? (
+                    <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#111' }}>
+                      <img src={p.photo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                     </div>
-                  ))}
+                  ) : (
+                    <div style={{ width: '100%', aspectRatio: '1/1', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Bebas Neue',sans-serif", fontSize: '3rem', color: 'rgba(232,160,0,0.15)' }}>#{p.number}</div>
+                  )}
+
+                  <div style={{ padding: '1rem' }}>
+                    {/* Jersey number + name */}
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '0.2rem' }}>
+                      <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.4rem', color: '#E8A000', lineHeight: 1 }}>#{p.number}</span>
+                      <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.5px', color: '#F5F0E8' }}>{p.name}</span>
+                    </div>
+                    <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#555', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.8rem' }}>
+                      {p.position}{p.age ? ` · Age ${p.age}` : ''}
+                    </div>
+
+                    {/* Mini stat strip */}
+                    <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid #1a1a1a', paddingTop: '0.7rem' }}>
+                      {[['G', p.goals || 0], ['A', p.assists || 0], ['PTS', (p.goals || 0) + (p.assists || 0)]].map(([label, val]) => (
+                        <div key={label} style={{ textAlign: 'center' }}>
+                          <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.1rem', color: '#E8A000', lineHeight: 1 }}>{val}</div>
+                          <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.6rem', color: '#444', letterSpacing: '1px' }}>{label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return p.slug ? (
+                <Link key={p.id} href={`/teams/${team.id}/players/${p.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={p.id}>{card}</div>
+              );
+            })}
           </div>
         </>
       )}
