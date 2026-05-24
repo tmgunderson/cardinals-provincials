@@ -1,4 +1,5 @@
 import { GAMES, TEAMS } from '../../lib/data';
+import PrintButton from '../../components/PrintButton';
 
 export const metadata = { title: 'Schedule · Cardinals Provincials 2026' };
 
@@ -52,9 +53,12 @@ export default function SchedulePage() {
         })}
       </div>
 
-      <p style={{ color: '#333', fontSize: '0.8rem', marginTop: '2rem' }}>
-        Schedule subject to change. All games at Brentwood Arena, Calgary. Follow @cardinalsjrladieslax for real-time updates.
-      </p>
+      <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+        <p style={{ color: '#333', fontSize: '0.8rem' }}>
+          Schedule subject to change. All games at Brentwood Arena, Calgary. Follow @cardinalsjrladieslax for real-time updates.
+        </p>
+        <PrintButton />
+      </div>
     </div>
   );
 }

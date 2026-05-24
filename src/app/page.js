@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { TOURNAMENT, GAMES, TEAMS } from '../lib/data';
+import Countdown from '../components/Countdown';
+import WeatherWidget from '../components/WeatherWidget';
 
 export default function HomePage() {
   const liveGames = GAMES.filter(g => g.status === 'live');
@@ -35,6 +37,16 @@ export default function HomePage() {
         <p style={{ marginTop: '1.5rem', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.1rem', letterSpacing: '3px', color: '#FFB800', fontWeight: 600 }}>
           📍 Brentwood Arena, Calgary &nbsp;·&nbsp; July 17–19, 2026
         </p>
+
+        {/* Countdown */}
+        <div style={{ marginTop: '2.5rem', marginBottom: '0.5rem' }}>
+          <Countdown targetDate="2026-07-17T09:00:00" />
+        </div>
+
+        {/* Weather */}
+        <div style={{ marginBottom: '1rem' }}>
+          <WeatherWidget />
+        </div>
 
         {/* Live game banner */}
         {liveGames.length > 0 && (

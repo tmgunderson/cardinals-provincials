@@ -54,37 +54,24 @@ export default function TeamPage({ params }) {
       {players.length > 0 && (
         <>
           <div className="section-label" style={{ marginBottom: '1.5rem' }}>Roster — {players.length} Players</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(180px,1fr))', gap: '1px', background: '#1a1a1a' }}>
+          <div className="roster-grid">
             {players.map(p => {
-              const card = (
-                <div style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden', transition: 'background 0.15s' }}>
+              const inner = (
+                <div className="roster-card">
                   {/* Photo */}
-                  {p.photo ? (
-                    <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#111' }}>
-                      <img src={p.photo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                  <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#111' }}>
+                    {p.photo
+                      ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block', transition: 'transform 0.3s' }} />
+                      : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '3rem', color: 'rgba(232,160,0,0.12)' }}>#{p.number}</div>
+                    }
+                  </div>
+                  <div style={{ padding: '0.75rem 0.8rem 0.9rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', marginBottom: '0.15rem' }}>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: 'var(--gold)', lineHeight: 1 }}>#{p.number}</span>
+                      <span style={{ fontFamily: 'var(--font-ui)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--white)', letterSpacing: '0.3px' }}>{p.name}</span>
                     </div>
-                  ) : (
-                    <div style={{ width: '100%', aspectRatio: '1/1', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Bebas Neue',sans-serif", fontSize: '3rem', color: 'rgba(232,160,0,0.15)' }}>#{p.number}</div>
-                  )}
-
-                  <div style={{ padding: '1rem' }}>
-                    {/* Jersey number + name */}
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                      <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.4rem', color: '#E8A000', lineHeight: 1 }}>#{p.number}</span>
-                      <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.5px', color: '#F5F0E8' }}>{p.name}</span>
-                    </div>
-                    <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#555', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.8rem' }}>
-                      {p.position}{p.age ? ` · Age ${p.age}` : ''}
-                    </div>
-
-                    {/* Mini stat strip */}
-                    <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid #1a1a1a', paddingTop: '0.7rem' }}>
-                      {[['G', p.goals || 0], ['A', p.assists || 0], ['PTS', (p.goals || 0) + (p.assists || 0)]].map(([label, val]) => (
-                        <div key={label} style={{ textAlign: 'center' }}>
-                          <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.1rem', color: '#E8A000', lineHeight: 1 }}>{val}</div>
-                          <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.6rem', color: '#444', letterSpacing: '1px' }}>{label}</div>
-                        </div>
-                      ))}
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.62rem', color: '#4a4a4a', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                      {p.position}{p.age ? ` · ${p.age}` : ''}
                     </div>
                   </div>
                 </div>
@@ -92,10 +79,10 @@ export default function TeamPage({ params }) {
 
               return p.slug ? (
                 <Link key={p.id} href={`/teams/${team.id}/players/${p.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-                  {card}
+                  {inner}
                 </Link>
               ) : (
-                <div key={p.id}>{card}</div>
+                <div key={p.id}>{inner}</div>
               );
             })}
           </div>

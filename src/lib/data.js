@@ -106,6 +106,20 @@ export const APPAREL = [
   { id: 'pin',       icon: '🏅', name: 'Provincials Pin',    price: 8,   description: 'Collectible hard enamel pin · 2026 edition' },
 ];
 
+export const SPONSORS = [
+  // Platinum — title sponsors
+  // { id: 'example', tier: 'platinum', name: 'Company Name', logo: '/sponsors/example.png', url: 'https://example.com', tagline: 'Optional tagline' },
+
+  // Gold — major sponsors
+  // { id: 'example2', tier: 'gold', name: 'Company Name', logo: '/sponsors/example2.png', url: 'https://example.com' },
+
+  // Silver — supporting sponsors
+  // { id: 'example3', tier: 'silver', name: 'Company Name', logo: null, url: 'https://example.com' },
+
+  // Community — local supporters
+  // { id: 'example4', tier: 'community', name: 'Local Business', logo: null, url: null },
+];
+
 export const HOTELS = [
   { name: 'Best Western Village Park Inn', tag: 'Closest Hotel', addr: '1804 Crowchild Trail NW, Calgary, AB T2M 3Y7', dist: '~5 min drive', notes: 'Pet friendly. Ask about RMLL group rate.', map: 'https://maps.google.com/?q=Best+Western+Village+Park+Inn+Calgary' },
   { name: 'Sandman Hotel Calgary NW',      tag: 'Family Pick',   addr: '888 Country Hills Blvd NE, Calgary, AB',        dist: '~15 min drive', notes: 'Pool on-site. Good value for families.',   map: 'https://maps.google.com/?q=Sandman+Hotel+Calgary+NW' },

@@ -144,8 +144,84 @@ a { color: inherit; text-decoration: none; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--grey3); }
 
+/* ── Player card ── */
+.player-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(232,160,0,0.35);
+  box-shadow: 0 16px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(232,160,0,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 380px;
+  width: 100%;
+}
+
+.player-card-photo {
+  height: 310px;
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  position: relative;
+}
+
+.player-card-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.player-card:hover .player-card-photo img { transform: scale(1.03); }
+
+.player-profile-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ── Roster grid ── */
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 2px;
+  background: #141414;
+}
+
+.roster-card {
+  background: #0a0a0a;
+  overflow: hidden;
+  transition: background 0.15s;
+  border-top: 2px solid transparent;
+}
+
+.roster-card:hover { background: #111; border-top-color: var(--gold); }
+
 /* ── Responsive ── */
+@media (max-width: 860px) {
+  .player-profile-grid { grid-template-columns: 1fr; }
+  .player-card { max-width: 100%; }
+}
+
 @media (max-width: 640px) {
   .section { padding: 3rem 1rem; }
   .btn { padding: 0.75rem 1.5rem; font-size: 0.8rem; }
+  .roster-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+
+/* ── Print (Schedule page) ── */
+@media print {
+  nav, footer, .btn, .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .section { padding: 1rem !important; max-width: 100% !important; }
+  .section-label { color: #333 !important; }
+  .section-title { color: #000 !important; font-size: 2rem !important; }
+  .divider { background: #000 !important; }
+  a { color: #000 !important; text-decoration: none !important; }
+  [style*="background: #0a0a0a"], [style*="background:#0a0a0a"] { background: #fff !important; }
+  [style*="color: #E8A000"], [style*="color:#E8A000"] { color: #000 !important; }
+  [style*="color: #FFB800"], [style*="color:#FFB800"] { color: #000 !important; }
+  [style*="background: #1a1a1a"], [style*="background:#1a1a1a"] { background: #ddd !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 1.5cm; size: A4 portrait; }
 }
