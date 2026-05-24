@@ -44,17 +44,17 @@ export default function StatsPage() {
           <div key={s.label} style={{ background: '#0a0a0a', padding: '1.5rem', textAlign: 'center' }}>
             <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2.5rem', color: '#E8A000', lineHeight: 1 }}>{s.value}</div>
             {s.sub && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: '#E8A000' }}>{s.sub}</div>}
-            <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.65rem', letterSpacing: '2px', color: '#444', textTransform: 'uppercase', marginTop: '0.3rem' }}>{s.label}</div>
+            <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--muted)', textTransform: 'uppercase', marginTop: '0.3rem' }}>{s.label}</div>
           </div>
         ))}
       </div>
 
       {/* Sort controls */}
       <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', letterSpacing: '2px', color: '#444', alignSelf: 'center', textTransform: 'uppercase', marginRight: '0.5rem' }}>Sort by:</span>
+        <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', letterSpacing: '2px', color: 'var(--muted)', alignSelf: 'center', textTransform: 'uppercase', marginRight: '0.5rem' }}>Sort by:</span>
         {COLS.map(c => (
           <button key={c.key} onClick={() => setSortBy(c.key)}
-            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.4rem 1rem', background: sortBy === c.key ? 'rgba(232,160,0,0.15)' : 'transparent', color: sortBy === c.key ? '#E8A000' : '#444', border: sortBy === c.key ? '1px solid rgba(232,160,0,0.3)' : '1px solid #1a1a1a', cursor: 'pointer' }}>
+            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.4rem 1rem', background: sortBy === c.key ? 'rgba(232,160,0,0.15)' : 'transparent', color: sortBy === c.key ? '#E8A000' : 'var(--muted)', border: sortBy === c.key ? '1px solid rgba(232,160,0,0.3)' : '1px solid #1a1a1a', cursor: 'pointer' }}>
             {c.title}
           </button>
         ))}
@@ -75,18 +75,18 @@ export default function StatsPage() {
               <tr key={p.id} style={{ background: i % 2 === 0 ? '#0a0a0a' : '#0d0d0d', borderBottom: '1px solid #111' }}>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#E8A000', fontWeight: 700 }}>{p.number}</td>
                 <td style={{ padding: '0.9rem 1rem', fontWeight: 600 }}>{p.name}</td>
-                <td style={{ padding: '0.9rem 1rem', color: '#C41E3A', fontSize: '0.85rem' }}>{p.position}</td>
-                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: '#C41E3A' }}>{p.gp || 0}</td>
+                <td style={{ padding: '0.9rem 1rem', color: 'var(--muted)', fontSize: '0.85rem' }}>{p.position}</td>
+                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: 'var(--muted)' }}>{p.gp || 0}</td>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', fontWeight: 700, color: sortBy === 'goals' ? '#FFB800' : '#F5F0E8' }}>{p.goals || 0}</td>
-                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: sortBy === 'assists' ? '#FFB800' : '#888' }}>{p.assists || 0}</td>
+                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: sortBy === 'assists' ? '#FFB800' : 'var(--muted)' }}>{p.assists || 0}</td>
                 <td style={{ padding: '0.9rem 1rem', textAlign: 'center', fontWeight: 700, fontSize: '1.1rem', color: sortBy === 'points' ? '#E8A000' : '#F5F0E8' }}>{(p.goals || 0) + (p.assists || 0)}</td>
-                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: 'rgba(196,30,58,0.75)' }}>{p.pim || 0}</td>
+                <td style={{ padding: '0.9rem 1rem', textAlign: 'center', color: 'var(--muted)' }}>{p.pim || 0}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p style={{ color: '#444', fontSize: '0.8rem', marginTop: '1rem' }}>G = Goals · A = Assists · PTS = Points · PIM = Penalty Minutes · GP = Games Played</p>
+      <p style={{ color: 'var(--muted)', fontSize: '0.8rem', marginTop: '1rem' }}>G = Goals · A = Assists · PTS = Points · PIM = Penalty Minutes · GP = Games Played</p>
     </div>
   );
 }

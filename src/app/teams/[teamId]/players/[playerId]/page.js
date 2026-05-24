@@ -72,7 +72,7 @@ export default function PlayerPage({ params }) {
                 #{player.number}
               </div>
             </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(196,30,58,0.75)', marginTop: '0.25rem' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.25rem' }}>
               {player.position}{player.age ? ` · Age ${player.age}` : ''}
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function PlayerPage({ params }) {
             {stats.map(([label, val], i) => (
               <div key={label} style={{ flex: 1, padding: '0.65rem 0', textAlign: 'center', borderRight: i < stats.length - 1 ? '1px solid rgba(232,160,0,0.08)' : 'none' }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--gold)', lineHeight: 1 }}>{val}</div>
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.55rem', color: '#444', letterSpacing: '2px', textTransform: 'uppercase', marginTop: '0.15rem' }}>{label}</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.55rem', color: 'var(--muted)', letterSpacing: '2px', textTransform: 'uppercase', marginTop: '0.15rem' }}>{label}</div>
               </div>
             ))}
           </div>

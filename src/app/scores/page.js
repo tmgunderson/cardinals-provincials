@@ -44,7 +44,7 @@ export default function ScoresPage() {
       </h1>
       <div className="divider" />
 
-      <p style={{ color: '#C41E3A', fontSize: '0.88rem', marginBottom: '2rem' }}>
+      <p style={{ color: 'var(--muted)', fontSize: '0.88rem', marginBottom: '2rem' }}>
         Scores update automatically every 20 seconds. Volunteer admin updates from the arena.
       </p>
 
@@ -52,7 +52,7 @@ export default function ScoresPage() {
       <div style={{ display: 'flex', borderBottom: '1px solid #1a1a1a', marginBottom: '2rem' }}>
         {DAYS.map(d => (
           <button key={d} onClick={() => setActiveDay(d)}
-            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.9rem 1.5rem', background: 'transparent', border: 'none', color: activeDay === d ? '#E8A000' : '#444', borderBottom: activeDay === d ? '2px solid #E8A000' : '2px solid transparent', cursor: 'pointer', marginBottom: '-1px' }}>
+            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.9rem 1.5rem', background: 'transparent', border: 'none', color: activeDay === d ? '#E8A000' : 'var(--muted)', borderBottom: activeDay === d ? '2px solid #E8A000' : '2px solid transparent', cursor: 'pointer', marginBottom: '-1px' }}>
             {d} · {d === 'Thursday' ? 'Jul 17' : d === 'Friday' ? 'Jul 18' : 'Jul 19'}
           </button>
         ))}
@@ -77,34 +77,34 @@ export default function ScoresPage() {
                   <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 700, fontSize: '1rem', color: g.homeTeamId === 'cardinals' ? '#FFB800' : '#F5F0E8' }}>
                     {home.name}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: '#444' }}>HOME</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--muted)' }}>HOME</div>
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
                   {g.status !== 'upcoming'
                     ? <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2.2rem', letterSpacing: '2px' }}>{g.homeScore} – {g.awayScore}</div>
-                    : <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.2rem', color: '#333' }}>VS</div>
+                    : <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.2rem', color: 'var(--muted)' }}>VS</div>
                   }
-                  {g.period && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#C41E3A' }}>{g.period}</div>}
+                  {g.period && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: 'var(--muted)' }}>{g.period}</div>}
                 </div>
 
                 <div>
                   <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 700, fontSize: '1rem', color: g.awayTeamId === 'cardinals' ? '#FFB800' : '#F5F0E8' }}>
                     {away.name}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: '#444' }}>AWAY</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--muted)' }}>AWAY</div>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.4rem' }}>
                   <StatusBadge status={g.status} />
-                  <div style={{ fontSize: '0.7rem', color: '#333' }}>{g.venue}</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--muted)', opacity: 0.6 }}>{g.venue}</div>
                 </div>
               </div>
             </div>
           );
         })}
         {dayGames.length === 0 && (
-          <div style={{ padding: '3rem', textAlign: 'center', color: '#333', fontFamily: "'Barlow Condensed',sans-serif", letterSpacing: '2px' }}>
+          <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--muted)', fontFamily: "'Barlow Condensed',sans-serif", letterSpacing: '2px' }}>
             No games scheduled for this day yet
           </div>
         )}

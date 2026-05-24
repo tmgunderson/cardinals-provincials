@@ -32,14 +32,14 @@ export default function TeamPage({ params }) {
         <div>
           <div className="section-label">{isCardinals ? '🏠 Host Team · RMLL Provincials 2026' : 'RMLL Provincials 2026'}</div>
           <h1 className="section-title" style={{ color: isCardinals ? '#E8A000' : '#F5F0E8' }}>{team.name}</h1>
-          {team.coach && <p style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', letterSpacing: '1px', marginTop: '0.4rem' }}>Head Coach: {team.coach}</p>}
+          {team.coach && <p style={{ color: 'var(--muted)', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', letterSpacing: '1px', marginTop: '0.4rem' }}>Head Coach: {team.coach}</p>}
         </div>
       </div>
 
       <div className="divider" />
 
       {/* Bio */}
-      <p style={{ color: '#C41E3A', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '700px', marginBottom: '3rem' }}>{team.bio}</p>
+      <p style={{ color: 'var(--muted)', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '700px', marginBottom: '3rem' }}>{team.bio}</p>
 
       {/* Staff */}
       {team.staff?.length > 0 && (
@@ -47,7 +47,7 @@ export default function TeamPage({ params }) {
           <div className="section-label" style={{ marginBottom: '1rem' }}>Coaching Staff</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))', gap: '1px', background: '#1a1a1a' }}>
             {team.staff.map(s => (
-              <div key={s} style={{ background: '#0a0a0a', padding: '1rem 1.2rem', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', color: '#C41E3A' }}>{s}</div>
+              <div key={s} style={{ background: '#0a0a0a', padding: '1rem 1.2rem', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.9rem', color: 'var(--muted)' }}>{s}</div>
             ))}
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function TeamPage({ params }) {
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: 'var(--gold)', lineHeight: 1 }}>#{p.number}</span>
                       <span style={{ fontFamily: 'var(--font-ui)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--white)', letterSpacing: '0.3px' }}>{p.name}</span>
                     </div>
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.62rem', color: '#4a4a4a', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.62rem', color: 'var(--muted)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
                       {p.position}{p.age ? ` · ${p.age}` : ''}
                     </div>
                   </div>

@@ -7,7 +7,7 @@ export default function TeamsPage() {
       <div className="section-label">RMLL Provincials 2026</div>
       <h1 className="section-title">The Teams</h1>
       <div className="divider" />
-      <p style={{ color: '#C41E3A', fontSize: '0.88rem', marginBottom: '2.5rem', maxWidth: '600px' }}>
+      <p style={{ color: 'var(--muted)', fontSize: '0.88rem', marginBottom: '2.5rem', maxWidth: '600px' }}>
         Full team list confirmed by RMLL closer to the tournament. Teams will be added as they register.
       </p>
 
@@ -26,10 +26,10 @@ export default function TeamsPage() {
                 <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.6rem', letterSpacing: '1px', color: team.id === 'cardinals' ? '#E8A000' : '#F5F0E8' }}>
                   {team.name === 'TBD' ? 'Team TBD' : team.name}
                 </div>
-                {team.coach && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: 'rgba(196,30,58,0.75)', letterSpacing: '1px' }}>Head Coach: {team.coach}</div>}
+                {team.coach && <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: 'var(--muted)', letterSpacing: '1px' }}>Head Coach: {team.coach}</div>}
               </div>
             </div>
-            <p style={{ color: 'rgba(196,30,58,0.75)', fontSize: '0.85rem', lineHeight: 1.6 }}>{team.bio}</p>
+            <p style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.6 }}>{team.bio}</p>
             {team.id === 'cardinals' && (
               <div style={{ marginTop: '1rem', fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', fontWeight: 700, letterSpacing: '3px', color: '#E8A000', textTransform: 'uppercase' }}>
                 🏠 Host Team · View Full Roster →

@@ -67,7 +67,7 @@ export default function AdminPage() {
   };
 
   const inp = { width: '100%', background: '#0a0a0a', border: '1px solid #2a2a2a', color: '#F5F0E8', padding: '0.7rem 1rem', fontFamily: "'Barlow',sans-serif", fontSize: '0.9rem', marginBottom: '0.8rem', boxSizing: 'border-box' };
-  const lbl = { fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#C41E3A', display: 'block', marginBottom: '0.3rem' };
+  const lbl = { fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.3rem' };
 
   // ── Login ──
   if (!authed) {
@@ -75,7 +75,7 @@ export default function AdminPage() {
       <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
         <div style={{ background: '#111', border: '1px solid #1a1a1a', padding: '3rem', width: '100%', maxWidth: '360px', textAlign: 'center' }}>
           <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2rem', color: '#E8A000', marginBottom: '0.3rem' }}>Volunteer Admin</div>
-          <p style={{ color: '#444', fontSize: '0.85rem', marginBottom: '2rem' }}>Enter your PIN to update scores and stats</p>
+          <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginBottom: '2rem' }}>Enter your PIN to update scores and stats</p>
           <input type="password" placeholder="••••" value={pin}
             onChange={e => { setPin(e.target.value); setPinErr(false); }}
             onKeyDown={e => e.key === 'Enter' && login()}
@@ -104,7 +104,7 @@ export default function AdminPage() {
       <div style={{ display: 'flex', borderBottom: '1px solid #1a1a1a', marginBottom: '2rem' }}>
         {['scores', 'stats'].map(t => (
           <button key={t} onClick={() => setTab(t)}
-            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.9rem 1.5rem', background: 'transparent', border: 'none', color: tab === t ? '#E8A000' : '#444', borderBottom: tab === t ? '2px solid #E8A000' : '2px solid transparent', cursor: 'pointer', marginBottom: '-1px' }}>
+            style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', padding: '0.9rem 1.5rem', background: 'transparent', border: 'none', color: tab === t ? '#E8A000' : 'var(--muted)', borderBottom: tab === t ? '2px solid #E8A000' : '2px solid transparent', cursor: 'pointer', marginBottom: '-1px' }}>
             {t === 'scores' ? 'Update Scores' : 'Update Stats'}
           </button>
         ))}
@@ -145,14 +145,14 @@ export default function AdminPage() {
               ) : (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
                   <div>
-                    <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: '#444', letterSpacing: '1px' }}>{g.day} · {g.date} · {g.time}</div>
+                    <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.7rem', color: 'var(--muted)', letterSpacing: '1px' }}>{g.day} · {g.date} · {g.time}</div>
                     <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.3rem', marginTop: '0.2rem' }}>
                       <span style={{ color: g.homeTeamId === 'cardinals' ? '#E8A000' : '#F5F0E8' }}>{getTeamName(g.homeTeamId)}</span>
-                      <span style={{ color: '#333', margin: '0 0.5rem' }}>{g.homeScore} – {g.awayScore}</span>
+                      <span style={{ color: 'var(--muted)', margin: '0 0.5rem' }}>{g.homeScore} – {g.awayScore}</span>
                       <span style={{ color: g.awayTeamId === 'cardinals' ? '#E8A000' : '#F5F0E8' }}>{getTeamName(g.awayTeamId)}</span>
                     </div>
                     <span className={`badge badge-${g.status}`} style={{ marginTop: '0.3rem' }}>{g.status}</span>
-                    {g.period && <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: 'rgba(196,30,58,0.75)', marginLeft: '0.8rem' }}>{g.period}</span>}
+                    {g.period && <span style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.75rem', color: 'var(--muted)', marginLeft: '0.8rem' }}>{g.period}</span>}
                   </div>
                   <button className="btn btn-ghost btn-sm" onClick={() => setEditing({ ...g })}>Edit Score</button>
                 </div>
@@ -200,7 +200,7 @@ export default function AdminPage() {
                     <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.8rem', color: '#E8A000', lineHeight: 1 }}>#{p.number}</div>
                     <div>
                       <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 700, fontSize: '1rem' }}>{p.name}</div>
-                      <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: 'rgba(196,30,58,0.75)' }}>{p.position} · GP: {p.gp || 0} · G: {p.goals || 0} · A: {p.assists || 0} · PTS: {(p.goals || 0) + (p.assists || 0)}</div>
+                      <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: '0.8rem', color: 'var(--muted)' }}>{p.position} · GP: {p.gp || 0} · G: {p.goals || 0} · A: {p.assists || 0} · PTS: {(p.goals || 0) + (p.assists || 0)}</div>
                     </div>
                   </div>
                   <button className="btn btn-ghost btn-sm" onClick={() => setEditingPlayer({ ...p })}>Edit Stats</button>
